@@ -1,0 +1,13 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="Biblioteka_Warszawska:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/Biblioteka_Warszawska_jar</output-path>
+    <root id="archive" name="Java_AEH.jar">
+      <element id="module-output" name="Java_AEH" />
+      <element id="file-copy" path="$PROJECT_DIR$/ksiegarnia/AplikacjaGUI.java" />
+      <element id="file-copy" path="$PROJECT_DIR$/ksiegarnia/Biblioteka.java" />
+      <element id="file-copy" path="$PROJECT_DIR$/ksiegarnia/DataManager.java" />
+      <element id="file-copy" path="$PROJECT_DIR$/ksiegarnia/Ksiazka.java" />
+      <element id="file-copy" path="$PROJECT_DIR$/ksiegarnia/KsiazkiTableModel.java" />
+    </root>
+  </artifact>
+</component>
