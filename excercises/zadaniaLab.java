@@ -18,6 +18,11 @@ public class zadaniaLab {
         int someNumb = 7; //liczba do sprawdzenia
         System.out.println("Liczba " + someNumb + " jest " + evenOdd(someNumb) + " (even or odd? zad3)");
 
+        // Wypisanie zad3 wskaźnik BMI
+        double weight = 76; // Masa ciała w kilogramach
+        double height = 1.75; // Wzrost w metrach
+        System.out.println("BMI wynosi: " + calcBMI(weight, height) + " (zad4 bmi calculator)");
+
     
         
     }
@@ -56,13 +61,19 @@ public class zadaniaLab {
         return (number % 2 == 0) ? "even" : "odd";
     }
 
+    //zadanie 4 program obliczający wskaźnik masy ciała (BMI).
+    public static String calcBMI(double weight, double height) {
+        double bmi = weight / (height * height); // wzór: masa (kg) / (wzrost (m))^2
+        return String.format("%.2f", bmi); // Zaokrąglenie wyniku do do dwóch miejsc po przecinku
+    }
+
 
 }
 
 
 
 
-//4) Napisz program obliczający wskaźnik masy ciała (BMI).
+
 //5) Napisz program, który dla tablicy wyników z kilkoma ocenami obliczy średnią ocen i określi odpowiedni stopień zaliczenia (np. "A", "B", "C" itp.).
 //6) Napisz program, który sprawdza, czy dane słowo jest palindromem.
 
