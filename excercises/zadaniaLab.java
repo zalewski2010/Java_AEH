@@ -1,5 +1,8 @@
 package excercises;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class zadaniaLab {
 
     public static void main(String[] args) {
@@ -22,6 +25,29 @@ public class zadaniaLab {
         double weight = 76; // Masa ciała w kilogramach
         double height = 1.75; // Wzrost w metrach
         System.out.println("BMI wynosi: " + calcBMI(weight, height) + " (zad4 bmi calculator)");
+
+        // Zad 5 , Tworzenie listy studentów z ocenami
+        List<Student> students = new ArrayList<>();
+        students.add(new Student("John Smith", new int[]{90, 92, 88, 95}));
+        students.add(new Student("John Doe", new int[]{82, 75, 80, 79}));
+        students.add(new Student("John Woo", new int[]{70, 72, 68, 65}));
+        students.add(new Student("John Johnson", new int[]{60, 65, 55, 70}));
+        students.add(new Student("John Soft", new int[]{50, 45, 55, 60}));
+        // Obliczanie średniej ocen dla klasy
+        double totalSum = 0;
+        int totalGradesCount = 0;
+        for (Student student : students) {
+            for (int grade : student.grades) {
+                totalSum += grade;
+                totalGradesCount++;
+            }
+        }
+        double classAverage = totalSum / totalGradesCount;
+        System.out.println("Średnia ocen dla klasy wynosi: " + classAverage + "...(zad5)");
+        // Obliczanie średniej ocen
+        for (Student student : students) {
+            System.out.println("Student: " + student.name + ": Ma ocenę końcową : " + calculateFinalGrade(student.grades) + " ...(zad5)");
+        }
 
     
         
@@ -66,15 +92,47 @@ public class zadaniaLab {
         double bmi = weight / (height * height); // wzór: masa (kg) / (wzrost (m))^2
         return String.format("%.2f", bmi); // Zaokrąglenie wyniku do do dwóch miejsc po przecinku
     }
+    
+    // zadanie 5 program, który dla tablicy wyników z kilkoma ocenami obliczy średnią ocen i określi 
+    // odpowiedni stopień zaliczenia (np. "A", "B", "C" itp.).
+    static class Student {
+        String name;
+        int[] grades;
 
-
+        public Student(String name, int[] grades) {
+            this.name = name;
+            this.grades = grades;
+        }
+    }
+    // Metoda obliczająca średnią ocen i przypisująca stopień zaliczenia
+    public static String calculateFinalGrade(int[] grades) {
+        if (grades == null || grades.length == 0) {
+            return "N/A"; // Zwraca "N/A", jeśli tablica jest pusta lub null
+        }
+        double sum = 0;
+        for (int grade : grades) {
+            sum += grade; // Sumuje wszystkie oceny
+        }
+        double average = sum / grades.length; // Oblicza średnią
+        
+        if (average >= 90) {
+            return "A";
+        } else if (average >= 80) {
+            return "B";
+        } else if (average >= 70) {
+            return "C";
+        } else if (average >= 60) {
+            return "D";
+        } else {
+            return "F";
+        }
+    }
 }
 
 
 
 
 
-//5) Napisz program, który dla tablicy wyników z kilkoma ocenami obliczy średnią ocen i określi odpowiedni stopień zaliczenia (np. "A", "B", "C" itp.).
 //6) Napisz program, który sprawdza, czy dane słowo jest palindromem.
 
 
