@@ -66,9 +66,19 @@ public class zadaniaLab {
         int start = 1;
         int end = 20;
         List<Integer> primes = findPrimesInRange(start, end);
-        System.out.println("Liczby pierwsze w zakresie od " + start + " do " + end + " to: " + primes);
+        System.out.println("Liczby pierwsze w zakresie od " + start + " do " + end + " to: " + primes + " (zad 1.2)");
 
+        // zad 1.3 zliczanie wystąpień liczby w tablicy
+        int[] arrayOccurrrences = {1, 1, 2, 2, 3, 3, 4, 3, 2, 1, 3};
+        int numberToCount = 3;
+        System.out.println("Liczba " + numberToCount + " występuje " + countOccurrences(arrayOccurrrences, numberToCount) + " razy w tablicy. (zad 1.3)");
+
+        // zad 1.4 rekurencja
+        int numberRecur = 5;
+        System.out.println("Suma liczb od 1 do " + numberRecur + " wynosi: " + sumUpTo(numberRecur) + " (zad 1.4)");
     }
+
+    
 
     
         
@@ -194,18 +204,34 @@ public class zadaniaLab {
         return true;
     }
 
+    // zad 1.3 Napisz funkcję, która przyjmuje tablicę i liczbę, a następnie zlicza ile razy ta liczba występuje w tablicy.
+    public static int countOccurrences(int[] arrayOccurrences, int numberToCount) {
+        int count = 0;
+        for (int number : arrayOccurrences) {
+            if (number == numberToCount) {
+                count++;
+            }
+        }
+        return count;
+    }
+
+
+    // Funkcja rekurencyjna do obliczania sumy liczb od 1 do n
+    public static int sumUpTo(int n) {
+        // Przypadek bazowy
+        if (n <= 1) {
+            return n;
+        }
+        // Krok rekurencyjny
+        else {
+            return n + sumUpTo(n - 1);
+        }
+    }
+
 
 }
 
 
-
-
-
-
-
-//1.2) Napisz funkcję, która przyjmuje zakres liczb i zwraca tablicę liczb pierwszych w tym zakresie.
-
-//1.3) Napisz funkcję, która przyjmuje tablicę i liczbę, a następnie zlicza ile razy ta liczba występuje w tablicy.
 
 //1.4) Napisz funkcję rekurencyjną, która oblicza sumę liczby całkowitej, dodając do niej wszystkie liczby od 1 do tej liczby.
 //Link: https://pl.wikipedia.org/wiki/Rekurencja
