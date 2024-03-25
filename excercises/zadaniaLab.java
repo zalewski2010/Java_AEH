@@ -49,6 +49,10 @@ public class zadaniaLab {
             System.out.println("Student: " + student.name + ": Ma ocenę końcową : " + calculateFinalGrade(student.grades) + " ...(zad5)");
         }
 
+        // zad6 wpisanie słowa - Sprawdzenie czy słowo jest palindromem
+        String word = "kajak";
+        System.out.println("Czy Słowo " + word + " jest palindromem? Odpowiedź: " + isPalindrome(word) + " (zad6)");
+
     
         
     }
@@ -104,7 +108,7 @@ public class zadaniaLab {
             this.grades = grades;
         }
     }
-    // Metoda obliczająca średnią ocen i przypisująca stopień zaliczenia
+    // Zad5 cdn Metoda obliczająca średnią ocen i przypisująca stopień zaliczenia
     public static String calculateFinalGrade(int[] grades) {
         if (grades == null || grades.length == 0) {
             return "N/A"; // Zwraca "N/A", jeśli tablica jest pusta lub null
@@ -127,6 +131,20 @@ public class zadaniaLab {
             return "F";
         }
     }
+    // Zad6 program, który sprawdza, czy dane słowo jest palindromem.
+    public static boolean isPalindrome(String word) {
+        int i = 0;
+        int j = word.length() - 1;
+        while (i < j) {
+            if (word.charAt(i) != word.charAt(j)) {
+                return false; // Jeśli znaki są różne, słowo nie jest palindromem
+            }
+            i++;
+            j--;
+        }
+        return true; // jeśli nie ma różnic, słowo jest palindromem
+    }
+
 }
 
 
