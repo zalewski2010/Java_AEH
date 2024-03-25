@@ -53,9 +53,26 @@ public class zadaniaLab {
         String word = "kajak";
         System.out.println("Czy Słowo " + word + " jest palindromem? Odpowiedź: " + isPalindrome(word) + " (zad6)");
 
+        //zad1.1 tablica z liczbami
+        int[] array = {1, 3, 5, 7, 9, 11};
+        int numberToFind = 4;
+        int index = findIndexOfNumber(array, numberToFind);
+        if (index != -1) {
+            System.out.println("Dla liczby " + numberToFind + " znaleziono w tabeli indeks: " + index + ". (zad1.1)");
+        } else {
+            System.out.println("Liczby " + numberToFind + " nie ma w tablicy i zwracam wartość: " + index + " (zad1.1)");
+        }
+        // Zad 1.2 tablica liczb pierwszych
+        int start = 1;
+        int end = 20;
+        List<Integer> primes = findPrimesInRange(start, end);
+        System.out.println("Liczby pierwsze w zakresie od " + start + " do " + end + " to: " + primes);
+
+    }
+
     
         
-    }
+
     // zadanie 1 = Wyświetl wynik dodawania, odejmowania, mnożenia oraz dzielenia 2 wartości.
     // - jest to wersja bez wyboru rodzaju operacji, i bez inputa dla użytkownika
     public static int add(int a , int b) {
@@ -144,6 +161,39 @@ public class zadaniaLab {
         }
         return true; // jeśli nie ma różnic, słowo jest palindromem
     }
+    // Metoda do zadania 1.1
+    public static int findIndexOfNumber(int[] array, int numberToFind) {
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] == numberToFind) {
+                return i; // Zwraca indeks znalezionej liczby
+            }
+        }
+        return -1; // Zwraca -1, jeśli liczba nie została znaleziona
+    }
+
+    // Zad 1.2 Metoda znajdująca liczby pierwsze w danym zakresie
+    public static List<Integer> findPrimesInRange(int start, int end) {
+        List<Integer> primes = new ArrayList<>();
+        for (int number = start; number <= end; number++) {
+            if (isPrime(number)) {
+                primes.add(number);
+            }
+        }
+        return primes;
+    }
+    // Zad 1.2 metoda sprawdza, czy liczba jest liczbą pierwszą
+    public static boolean isPrime(int number) {
+        if (number <= 1) {
+            return false;
+        }
+        for (int i = 2; i <= Math.sqrt(number); i++) {
+            if (number % i == 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+
 
 }
 
@@ -151,11 +201,7 @@ public class zadaniaLab {
 
 
 
-//6) Napisz program, który sprawdza, czy dane słowo jest palindromem.
 
-
-
-//1.1) Napisz funkcję, która przyjmuje tablicę i liczbę do znalezienia, a następnie zwraca indeks tej liczby w tablicy (lub -1, jeśli nie znaleziono).
 
 //1.2) Napisz funkcję, która przyjmuje zakres liczb i zwraca tablicę liczb pierwszych w tym zakresie.
 
